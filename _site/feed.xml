@@ -6,8 +6,8 @@
 </description>
     <link>http://zli25.com/</link>
     <atom:link href="http://zli25.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Apr 2015 00:07:02 -0700</pubDate>
-    <lastBuildDate>Thu, 09 Apr 2015 00:07:02 -0700</lastBuildDate>
+    <pubDate>Thu, 09 Apr 2015 00:14:45 -0700</pubDate>
+    <lastBuildDate>Thu, 09 Apr 2015 00:14:45 -0700</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -47,8 +47,8 @@ You may assume that A has enough space (size that is greater or equal to m + n) 
 &lt;p&gt;Analysis: time complexity: o(m + n), space complexity o(1);&lt;/p&gt;
 </description>
         <pubDate>Thu, 09 Apr 2015 00:00:00 -0700</pubDate>
-        <link>http://zli25.com/tech/2015/04/09/leetcode-merge-sorted-array.html</link>
-        <guid isPermaLink="true">http://zli25.com/tech/2015/04/09/leetcode-merge-sorted-array.html</guid>
+        <link>http://zli25.com/leetcode-merge-sorted-array</link>
+        <guid isPermaLink="true">http://zli25.com/leetcode-merge-sorted-array</guid>
         
         
         <category>tech</category>
@@ -100,8 +100,8 @@ footer {
 &lt;p&gt;If you have a wrapper of your content, just apply the rules of body tag above to your wrapper element.&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Apr 2015 00:00:00 -0700</pubDate>
-        <link>http://zli25.com/tech/2015/04/08/footer-stick-to-bottom-of-page.html</link>
-        <guid isPermaLink="true">http://zli25.com/tech/2015/04/08/footer-stick-to-bottom-of-page.html</guid>
+        <link>http://zli25.com/footer-stick-to-bottom-of-page</link>
+        <guid isPermaLink="true">http://zli25.com/footer-stick-to-bottom-of-page</guid>
         
         
         <category>tech</category>
