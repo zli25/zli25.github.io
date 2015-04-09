@@ -7,13 +7,21 @@
 
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+    {% include social_media.html %}
+
+    <div class="container main-container" role="main">
+
+      {{ content }}
+
     </div>
 
     {% include footer.html %}
+
+    <script>
+        $( ".follow-me" ).click(function() {
+          $( ".social-media ul" ).slideToggle( "fast" );
+    });
+    </script>
 
   </body>
 

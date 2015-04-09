@@ -1,0 +1,30 @@
+ <div class="sidebar col-xs-12 col-sm-3 col-md-3">
+  <div class="introduction">
+    <h3>Introduction</h3>
+    <img class="headshot" src="{{ site.baseurl }}/img/headshot1.png" alt="headshop">
+    <!--<div class="travel-map">
+      <object type="application/x-shockwave-flash" data="http://static.travbuddy.com/flash/countries_map.swf?id=6842625">
+      <param name="movie" value="http://static.travbuddy.com/flash/countries_map.swf?id=6842625" />
+      <param name="quality" value="high" /><param name="bgcolor" value="#372060" />
+      <embed src="http://static.travbuddy.com/flash/countries_map.swf?id=6842625" quality="high" bgcolor="#372060"type="application/x-shockwave-flash"></embed>
+      </object>
+    </div>-->
+    <p>     
+      Hi, my name is Zibo. I love coding, web development and Kobe Bryant.
+    </p>
+  </div>
+
+  <div class="sidebar-related">
+    <h4>Recent posts:</h4>
+    <ul>
+      {% for post in site.posts %}        
+        <li>
+          <article>
+              <h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</div> 

@@ -1,0 +1,304 @@
+html {
+	height: 100%;
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #E8E8E8;
+	height: 100%;
+	padding-bottom: 150px;
+	
+}
+
+ul {
+	padding: 0;
+}
+
+li {
+	list-style: none;
+}
+
+p {
+	font-size: 1em;
+}
+
+h1 {
+	font-size: 2.25em;
+}
+
+a {
+	color:#444;
+}
+
+h1, h2, h3, h5, #logo {
+	margin-top: 0;
+}
+
+.navbar {
+	background: rgba(244, 115, 0, 0.8);
+}
+nav .collapse#nav ul li a{
+	height:50px;
+	line-height: 50px;
+	padding: 0;
+	margin-right: 25px;
+	color:#fff;
+	font-size: 18px;
+	font-family: 'Russo One', sans-serif;
+	text-transform: uppercase;
+}
+
+nav h1, #logo {
+	font-family: 'Russo One', sans-serif;
+}
+
+.main-container {
+	min-height: 100%;
+}
+
+.logo {
+	width:100%;
+	height: 100px;
+	background: url("http://cdn.twitrcovers.com/wp-content/uploads/2012/09/Wood-1.jpg") repeat;
+	color:white;
+}
+
+.logo .container {
+	height: 100%;
+}
+
+.logo .container #logo {
+	height: 100px;
+	line-height: 100px;
+	float: left;
+	font-size: 3.75em;
+	padding: 0;
+	color: white;
+	text-shadow: 1px 1px 0 #231F20,2px 2px 0 #fff;
+}
+
+.logo .container h1 {
+	height: 100px;
+	line-height: 100px;
+	float:right;
+	font-size:2.55em;
+	margin:0;
+	font-family: 'Shadows Into Light', cursive;
+	font-weight: bold;
+}
+
+
+.navbar-fixed-top {
+	position: absolute;
+	top:100px;
+}
+
+nav .collapse#nav ul li a:hover{
+	color:#000;
+	text-decoration: underline;
+}
+
+#nav {
+	float: left;
+}
+
+.social-media {
+	position:absolute;
+	top:150px;
+	left:0px;
+	max-width: 180px;
+	z-index: 2;
+}
+
+.social-media ul {
+	padding-left: 30px;
+}
+
+.social-media .follow-me{
+	margin-left: 10px;
+}
+
+.social-media ul li { 
+	-webkit-transition:0.5s ease;
+	-moz-transition:0.5s;
+	transition:0.5s;
+	position: relative;
+	left:0;
+	list-style: none;
+	margin-bottom: 10px;
+}
+
+.social-media ul li img:first-child {
+	-webkit-transition:0.5s ease;
+	-moz-transition:0.5s;
+	transition:0.5s;
+	width:35px;
+	height: auto;
+}
+
+.social-media ul li img:nth-child(2) { 
+	opacity:0; 
+	height: 20px;
+	width: auto;
+}
+
+.social-media ul li:hover {
+	left:50px;
+	cursor: pointer;
+}
+
+.social-media ul li:hover img:nth-child(2) { 
+	opacity:1; 
+}
+
+.social-media ul li:hover img:first-child{
+	-webkit-transform:rotate(360deg);
+	-moz-transform:rotate(360deg);
+	-o-transform:rotate(360deg);
+	transform:rotate(360deg);
+}  
+
+.sidebar {
+	/*width: 25%;
+	float: right;*/
+	background-color: #fff;
+	height: auto;
+	margin-top: 80px;
+	margin-bottom: 30px;
+	padding: 0 20px;
+}
+
+.sidebar .introduction {
+	padding:5px;
+	font-family: "Arial","Helvetica","sans-serif";
+	border-bottom: 1px solid grey;
+
+}
+
+.sidebar .introduction h3{
+	font-size: 1.5em;
+	margin-top: 10px;
+	font-family: 'Russo One', sans-serif;
+}
+
+.headshot {
+	width: 80%;
+	height: auto;
+	margin: 0 10px 10px 0;
+}
+
+.sidebar .introduction p {
+	font-size: 1em;
+}
+
+.sidebar .introduction p:first-letter {
+  color:#fff;
+  font-size: 36px;
+  background-color: #231F20;
+  font-family: chunkfiveroman;
+  margin: 0 5px 5px 0;
+  padding: 5px;
+  text-shadow: 1px 1px 0 #231F20,2px 2px 0 #fff;
+}
+
+.sidebar .sidebar-related {
+	margin-top: 20px;
+}
+
+.sidebar .sidebar-related a{
+	color:#555;
+}
+
+
+.main-content-with-margin {
+	background-color: #fff;
+	margin-right:1%;
+	padding-top: 20px;
+	margin-top: 80px;
+	margin-bottom: 30px;
+	padding:30px;
+}
+
+.main-content ul li article h1 {
+	margin-top: 10px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.5em;
+	color:#444;
+}
+
+.main-content ul li article p {
+	color:#999;
+	margin-bottom:30px;
+}
+
+
+
+footer {
+	width: 100%;
+	background-color: #000;
+	height: 50px;
+}
+
+footer .container {
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	text-align: center;
+}
+
+.error {
+	color:red;
+}
+
+.fix {
+	clear: both;
+}
+
+.warning {
+	border-color: red;
+}
+
+@media (max-width: 768px) {
+
+	.sidebar {
+		display: none;
+	}
+	.social-media ul {
+		display: none;
+	}
+	.social-media {
+		top: 100px;
+		z-index: 2000;
+	}
+
+
+	.logo .container #logo {
+		font-size:3em;
+	}
+
+	.logo .container h1 {
+		font-size: 1.8em;
+	}
+
+
+}
+
+@media (max-width: 480px) {
+
+	.logo .container #logo {
+		font-size:2.75em;
+		float:none;
+		line-height: 60px;
+	}
+
+	.logo .container h1 {
+		font-size: 1.55em;
+		float:none;
+		line-height: 30px;
+	}
+
+
+}
+
+
+
