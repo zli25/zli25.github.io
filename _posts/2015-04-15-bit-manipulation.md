@@ -2,8 +2,7 @@
 layout: post
 title: Bit Manipulation
 category: tech
-
-Basic Bit Manipulation and example questions
+description: Basic Bit Manipulation and example questions
 ---
 
 ##Bit Manipulation

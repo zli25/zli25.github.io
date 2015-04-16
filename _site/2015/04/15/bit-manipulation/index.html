@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Bit Manipulation</title>
+  <meta name="description" content="Zibo's blog site">
+
+  	<link rel="stylesheet" href="/css/normalize.min.css">
+  	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/jquery.fancybox.css" type="text/css" media="screen" />
+	<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lobster|Shadows+Into+Light|Dancing+Script:400,700|Indie+Flower|Play' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   	<script src="/js/bootstrap.min.js"></script>
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="logo">
+    <div class="container">
+      <a class="navbar-brand" id="logo" href="#">ZIBO LI</a>
+      <h1>Life is short. Play More...</h1>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles">Articles</a></li>
+          <li><a href="/tech">Tech</a></li>
+          <li><a href="/recources">Recouces</a></li>
+          <li><a href="/projects">Projects</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+</header>
+
+
+    <div class="social-media">
+
+	<!--<h3>Follow me on:</h3>-->
+	<img src="/img/Follow-me.png" alt="follow me" class="follow-me">
+			
+	<ul>
+		<li>
+			<a href="https://www.facebook.com/ziboli25" target="_blank">
+				<img src="/img/facebook.png" alt="Facebook Icon" />
+				<img src="/img/facebook-text.png" alt="Facebook Text" />
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/ZiboLi25" target="_blank">	
+				<img src="/img/twitter.png" alt="Twitter Icon" />
+				<img src="/img/twitter-text.png" alt="Twitter Text" />
+			</a>
+		</li>
+		<li>
+			<a href="https://www.linkedin.com/in/ziboli/" target="_blank">	
+				<img src="/img/linkedin.png" alt="LinkedIn Icon" />
+				<img src="/img/linkedin-text.png" alt="LinkedIn Text" />
+			</a>
+		</li>
+		<li>
+			<a href="https://github.com/zli25" target="_blank">	
+				<img src="/img/github.png" alt="GitHub Icon" />
+				<img src="/img/github-text.png" alt="GitHub Text" />
+			</a>
+		</li>
+	</ul>
+
+</div>
+
+    <div class="container main-container" role="main">
+
+      <div class="row">
+
+    <div class="main-content col-md-12">
+      <div class="main-content-with-margin">
+       
+       <h2>Bit Manipulation</h2>
+
+<h3>Basic bit manipulation:</h3>
+
+<p><em>Get Bit</em></p>
+
+<pre><code>int getBit(int num, int i) {
+    return (num &amp; (1 &lt;&lt; i));
+}
+</code></pre>
+
+<p><em>Set Bit</em></p>
+
+<pre><code> void setBit(int num, int i) {
+    num |= (1 &lt;&lt; i);
+}
+</code></pre>
+
+<p><em>Clear Bit</em></p>
+
+<pre><code>void clearBit(int num, int i) {
+    int mask = ~(1 &lt;&lt; i);
+    num &amp;= mask;    
+}
+</code></pre>
+
+<p><em>Update Bit</em></p>
+
+<pre><code>void updateBit(int num, int i, int v) {
+    int mask = ~(1 &lt;&lt; i);
+    num &amp;= (mask | (v &lt;&lt; i));   
+}
+</code></pre>
+
+<h3>Examples</h3>
+
+<h4>1. Number of 1 Bits</h4>
+
+<p>Write a function that takes an unsigned integer and returns the number of ’1' bits it has (also known as the Hamming weight).</p>
+
+<p>For example, the 32-bit integer ’11' has binary representation 00000000000000000000000000001011, so the function should return 3.</p>
+
+<h5>Solution 1:</h5>
+
+<pre><code>public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int num = 0;
+        while(n != 0) {
+            if((n &amp; 1) != 0) {
+                num++;
+            }
+            n = n &gt;&gt;&gt; 1; //(&gt;&gt;&gt; is unsigned right shift)
+        }
+        return num;
+    }
+}
+</code></pre>
+
+<p>Problem: Will execute 32 times no matter what the number is.</p>
+
+<h5>Solution 2:</h5>
+
+<pre><code>public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+        int num = 0;
+        while(n != 0) {
+            num++;
+            n &amp;= (n - 1);
+        }
+        return num;
+    }
+}
+</code></pre>
+
+<p>Tips: n&amp;(n-1) will get rid of a '1' bit from right to left, thus it will only execute the numebr of the '1' bits times, which highly improve the efficiency.</p>
+
+<h4>2. Reverse Bits</h4>
+
+<p>Reverse bits of a given 32 bits unsigned integer.</p>
+
+<p>For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 964176192 (represented in binary as 00111001011110000010100101000000).</p>
+
+<pre><code>public class Solution {
+    // you need treat n as an unsigned value
+    public int reverseBits(int n) {
+       int result = 0;
+       for (int i = 0; i &lt; 32; i++){
+           result &lt;&lt;= 1;     // must left shift result first, no &lt;&lt;&lt;
+           result |= (n &amp; 1);
+           n &gt;&gt;&gt;= 1;    
+       }
+       return result;
+    }
+}
+</code></pre>
+
+<h4>3. Bitwise AND of Numbers Range</h4>
+
+<p>Given a range [m, n] where 0 &lt;= m &lt;= n &lt;= 2147483647, return the bitwise AND of all numbers in this range, inclusive.</p>
+
+<p>For example, given the range [5, 7], you should return 4.</p>
+
+<h5><em>Analysis</em></h5>
+
+<p>Numbers between 5 and 7 are: <font color="red">01</font>01, <font color="red">01</font>10, <font color="red">01</font>11, the result of bitwise And of these three numbers are 0100, which is 4;</p>
+
+<p>Take another example: [27, 30], <font color="red">11</font>011， <font color="red">11</font>100，<font color="red">11</font>101，<font color="red">11</font>110, the reusult of hitwise And of these 4 numbers is 11000, we can see that the result is the consecutive bits starting from left they share in common. In this case is '11', the following will be all '0' since they don't have in common. Thus we can have the following solution:</p>
+
+<pre><code>public class Solution {
+    public int rangeBitwiseAnd(int m, int n) {
+        int i = 0;
+        while(m != n) {
+            m &gt;&gt;= 1;
+            n &gt;&gt;= 1;
+            i++;
+        }
+        return n&lt;&lt;i;
+    }
+} 
+</code></pre>
+
+<h4>4. Single Number</h4>
+
+<p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
+
+<h5><em>Note</em>:</h5>
+
+<p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+
+<h5><em>Solution1</em>:</h5>
+
+<p>A first thought would be using a hashmap to store the element in the array while traversing it, if the element is not in the hasmap, put it in, if already exists, remove it from the hashmap, then the one left in the hashmap would be the single number. The time efficiency is o(n), but it would use extra memory.</p>
+
+<h5><em>Solution2</em>:</h5>
+
+<p>Another solution is using bit manipulation.</p>
+
+<p><em>Tips</em>: A ^ 0 = A; A ^ A = 0; A ^ B ^ C = A ^ (B ^ C);</p>
+
+<pre><code>public class Solution {
+    public int singleNumber(int[] A) {
+        if (A == null || A.length == 0) {
+            return 0;
+        }
+        int ret = A[0];
+        for (int i = 1; i &lt; A.length; i++) {
+            ret ^= A[i];
+        }
+        return res;
+    }
+}
+</code></pre>
+
+<h4>5. Single Number II</h4>
+
+<p>Given an array of integers, every element appears three times except for one. Find that single one.</p>
+
+<h5><em>Note</em>:</h5>
+
+<p>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+
+<h5><em>Analysis</em>:</h5>
+
+<p>Linear runtime complexity means we can only traverse the array once. No extra memory mean we can not use hashmap. Thus we can considre using bit manipulation.</p>
+
+<p>Each interger has 32 bits. Since every element appreas three times except for one, we know that the number of '1' on each bits will be multiple of 3 plus 0 or 1(the single number we are looking for also have '1' on this bit). Thus we can count the number of '1' on each bit and do a '%3' operation to get bit of the single number.</p>
+
+<h5><em>Solution</em>:</h5>
+
+<pre><code>public class Solution {
+    public int singleNumber(int[] A) {
+        if (A == null || A.length == 0) {
+            return 0;
+        }
+
+        int[] count = new int[32];
+        int result = 0;
+
+        for (int i = 0; i &lt; 32; i++) {
+            for (int j = 0; j &lt; A.length; j++) {
+                count[i] += (A[j] &gt;&gt; i) &amp; 1;
+            }
+
+            result |= (count[i] % 3) &lt;&lt; i;
+        }
+
+        return result;
+    }
+}  
+</code></pre>
+ 
+      
+      </div>
+    </div>
+       
+</div>
+
+    </div>
+
+    <footer>
+  <div class="container">&copy;2015 Zibo Li. All Rights Reserved.</div>
+</footer>
+
+    <script>
+        $( ".follow-me" ).click(function() {
+          $( ".social-media ul" ).slideToggle( "fast" );
+    });
+    </script>
+
+  </body>
+
+</html>
