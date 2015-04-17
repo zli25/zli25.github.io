@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Zibo Li</title>
+  <title>Reverse Linked List</title>
   <meta name="description" content="Zibo's blog site">
 
   	<link rel="stylesheet" href="/css/normalize.min.css">
@@ -98,17 +98,108 @@
 
       <div class="row">
 
-    <div class="main-content col-xs-12 col-sm-9 col-md-9">
+    <div class="main-content col-md-9">
       <div class="main-content-with-margin">
        
-       <ul>
-	
-</ul>
+       <pre><code>/**
+ * Definition for ListNode.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int val) {
+ *         this.val = val;
+ *         this.next = null;
+ *     }
+ * }
+ */ 
+</code></pre>
+
+<h3>1. Reverse a linked list.</h3>
+
+<h4><em>Example</em></h4>
+
+<p>For linked list 1->2->3, the reversed linked list is 3->2->1</p>
+
+<h4><em>Challenge</em></h4>
+
+<p>Reverse it in-place and in one-pass</p>
+
+<h4><em>Solution</em></h4>
+
+<pre><code>public class Solution {
+    /**
+     * @param head: The head of linked list.
+     * @return: The new head of reversed linked list.
+     */
+    public ListNode reverse(ListNode head) {
+
+        ListNode prev = null;
+        ListNode next = null;
+
+        while (head != null) {
+           next = head.next;
+           head.next = prev;
+           prev = head;
+           head = next;
+        }
+        return prev;
+    }
+}
+</code></pre>
+
+<h3>2. Reverse a linked list II</h3>
+
+<p>Reverse a linked list from position m to n.</p>
+
+<h4><em>Example</em></h4>
+
+<p>Given 1->2->3->4->5->NULL, m = 2 and n = 4, return 1->4->3->2->5->NULL.</p>
+
+<h4><em>Note</em></h4>
+
+<p>Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.</p>
+
+<h4><em>Challenge</em></h4>
+
+<p>Reverse it in-place and in one-pass</p>
+
+<pre><code>public class Solution {
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        if (head == null || m &gt; n) {
+            return head;
+        }
+
+        ListNode dummy = new ListNode(0); // create a dummy node when the head of the list might change
+        dummy.next = head;
+        ListNode prev = dummy;                
+        ListNode start = head;            
+        int steps = m;
+        while (steps &gt; 1) {              // get the start node, and save the previous node
+            prev = start;
+            start = start.next;
+            steps--;
+        }
+
+        ListNode nextNode = start.next;
+        steps = n - m;
+        while (steps &gt; 0) {             // reverse the list between m and n
+            ListNode temp = nextNode.next;      // 1-&gt;2-&gt;3-&gt;4-&gt;5, (2,4); start is 2, nextNode is 3, temp is 4;
+            nextNode.next = start;
+            start = nextNode;
+            nextNode = temp;
+            steps--;
+        }
+
+        prev.next.next = nextNode;     // re-link the list
+        prev.next = start;
+
+        return dummy.next;
+    }
+}
+</code></pre>
 
 
-
-
- 
+       <div id="disqus_thread"></div>
       
       </div>
     </div>
@@ -160,8 +251,23 @@
     </ul>
 
   </div>
-</div>          
+</div>   
+       
 </div>
+
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'ziboblog';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript> 
 
     </div>
 

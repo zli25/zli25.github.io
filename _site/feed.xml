@@ -6,9 +6,119 @@
 </description>
     <link>http://zli25.com/</link>
     <atom:link href="http://zli25.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 16 Apr 2015 10:58:04 -0700</pubDate>
-    <lastBuildDate>Thu, 16 Apr 2015 10:58:04 -0700</lastBuildDate>
+    <pubDate>Fri, 17 Apr 2015 15:38:42 -0700</pubDate>
+    <lastBuildDate>Fri, 17 Apr 2015 15:38:42 -0700</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Reverse Linked List</title>
+        <description>&lt;pre&gt;&lt;code&gt;/**
+ * Definition for ListNode.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int val) {
+ *         this.val = val;
+ *         this.next = null;
+ *     }
+ * }
+ */ 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;1. Reverse a linked list.&lt;/h3&gt;
+
+&lt;h4&gt;&lt;em&gt;Example&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;For linked list 1-&gt;2-&gt;3, the reversed linked list is 3-&gt;2-&gt;1&lt;/p&gt;
+
+&lt;h4&gt;&lt;em&gt;Challenge&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Reverse it in-place and in one-pass&lt;/p&gt;
+
+&lt;h4&gt;&lt;em&gt;Solution&lt;/em&gt;&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Solution {
+    /**
+     * @param head: The head of linked list.
+     * @return: The new head of reversed linked list.
+     */
+    public ListNode reverse(ListNode head) {
+
+        ListNode prev = null;
+        ListNode next = null;
+
+        while (head != null) {
+           next = head.next;
+           head.next = prev;
+           prev = head;
+           head = next;
+        }
+        return prev;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;2. Reverse a linked list II&lt;/h3&gt;
+
+&lt;p&gt;Reverse a linked list from position m to n.&lt;/p&gt;
+
+&lt;h4&gt;&lt;em&gt;Example&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2 and n = 4, return 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL.&lt;/p&gt;
+
+&lt;h4&gt;&lt;em&gt;Note&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Given m, n satisfy the following condition: 1 ≤ m ≤ n ≤ length of list.&lt;/p&gt;
+
+&lt;h4&gt;&lt;em&gt;Challenge&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Reverse it in-place and in one-pass&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Solution {
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        if (head == null || m &amp;gt; n) {
+            return head;
+        }
+
+        ListNode dummy = new ListNode(0); // create a dummy node when the head of the list might change
+        dummy.next = head;
+        ListNode prev = dummy;                
+        ListNode start = head;            
+        int steps = m;
+        while (steps &amp;gt; 1) {              // get the start node, and save the previous node
+            prev = start;
+            start = start.next;
+            steps--;
+        }
+
+        ListNode nextNode = start.next;
+        steps = n - m;
+        while (steps &amp;gt; 0) {             // reverse the list between m and n
+            ListNode temp = nextNode.next;      // 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, (2,4); start is 2, nextNode is 3, temp is 4;
+            nextNode.next = start;
+            start = nextNode;
+            nextNode = temp;
+            steps--;
+        }
+
+        prev.next.next = nextNode;     // re-link the list
+        prev.next = start;
+
+        return dummy.next;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Thu, 16 Apr 2015 00:00:00 -0700</pubDate>
+        <link>http://zli25.com/2015/04/16/reverse-linked-list</link>
+        <guid isPermaLink="true">http://zli25.com/2015/04/16/reverse-linked-list</guid>
+        
+        <category>Leetcode, Linked List</category>
+        
+        
+        <category>tech</category>
+        
+      </item>
     
       <item>
         <title>Bit Manipulation</title>
@@ -245,7 +355,7 @@ You may assume that A has enough space (size that is greater or equal to m + n) 
         }
 
     }
-}
+}    
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Analysis: time complexity: o(m + n), space complexity o(1);&lt;/p&gt;

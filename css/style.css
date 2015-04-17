@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	background-color: #E8E8E8;
 	height: 100%;
 	padding-bottom: 150px;
@@ -170,7 +170,6 @@ nav .collapse#nav ul li a:hover{
 
 .sidebar .introduction {
 	padding:5px;
-	font-family: "Arial","Helvetica","sans-serif";
 	border-bottom: 1px solid grey;
 
 }
@@ -221,7 +220,7 @@ nav .collapse#nav ul li a:hover{
 
 .main-content ul li article h1 {
 	margin-top: 10px;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 	font-size: 1.5em;
 	color:#444;
 }
@@ -230,7 +229,6 @@ nav .collapse#nav ul li a:hover{
 	color:#999;
 	margin-bottom:30px;
 }
-
 
 
 footer {
@@ -260,9 +258,9 @@ footer .container {
 
 @media (max-width: 768px) {
 
-	.sidebar {
+	/*.sidebar {
 		display: none;
-	}
+	}*/
 	.social-media ul {
 		display: none;
 	}
