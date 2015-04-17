@@ -3,9 +3,9 @@ layout: home
 ---
 
 <ul>
-	{% for post in site.categories.recource %}
-	  
+	{% for post in site.categories.recource %}  
 	  <li>
+	  	<h5 class="date">{{ post.date | date: '%B %d, %Y' }}</h5>
 	    <article>
 	        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
 	        <p>

@@ -31,7 +31,7 @@ Sometimes when you build a website, you want your footer to stick to the bottom 
 	}
 	
 	body {
-		heigth: 100%;
+		height: 100%;
 		padding-bottom: 50px; (the height of your footer)
 	}
 	
